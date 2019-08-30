@@ -60,13 +60,7 @@
               	color: red;
               }
 
-#switch {
-	height:15px;
-	font-size: 10px;
-	color:red;
-	display:block;
-}
- 
+
 </style>
 
 <body>
@@ -75,8 +69,8 @@
 <div id="tim"></div>
    <br><br>
 <div id="disp"></div>
-<button id="switch" value ="on">OF/ON</button>
-                      <br>
+
+          <br>
 
 <button id="sin">Sin </button>
 <button id="cos">Cos </button>
@@ -147,7 +141,7 @@ function ans(){
 
 // the power button
 
-		function  show(){
+	/*	function  show(){
 
 let x = document.querySelector("#disp");
 	
@@ -156,7 +150,7 @@ x.style.color = "";
 } else { x.style.color = "white";
 	x.innerHTML= "0";
 	}
-}
+}*/
 
 	
 		function mClear(){
@@ -270,9 +264,9 @@ document.getElementById("log").addEventListener("click", function(){loga();});
 document.getElementById("rem").addEventListener("click", function(){ud("%");});
 
 document.getElementById("m3").addEventListener("click", function(){ memo();});
-document.getElementById("switch").addEventListener("click", function(){ show();});
+/*document.getElementById("switch").addEventListener("click", function(){ show();});
 
-
+*/
 </script>
 
 </body>
