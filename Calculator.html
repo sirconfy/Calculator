@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>CALCULATOR</title>
+</head>
+<style>
+     body{
+	      background-color: #fff;
+          }
+
+.calc{
+	position: absolute;
+	background-color: #000;
+	width: 310px;
+	height: 550px;
+	border-radius: 11px;
+	
+    }
+#disp{
+	  display: block;
+	  height: 70px;
+	  margin: 10px;
+	  color:black;
+	  margin-top: 30px;
+	  background-color: #fff;
+	  font-size: 45px;
+	  text-align: right;
+	  overflow: auto;
+      }
+      
+      #tim{
+         display: block;
+         height: 25px;
+         background-color: #fff;
+         font-size: 10px;
+         float: right;
+         margin:20px 10px 5px 2px;
+         padding-top:10px;
+         padding-bottom:-30px;
+         text-align:center;
+         border-radius: 10px;
+       
+      }
+      
+  .calc button{
+  	         height: 40px;
+  	         width: 50px;
+  	         margin: 5px 5px 5px 15px;
+  	         background-color: black;
+  	         border-radius: 10px;
+  	         color: #fff;
+  	         font-size:15px;
+                }
+ #clear, #mc{
+              	color: red;
+              }
+
+#switch {
+	height:15px;
+	font-size: 10px;
+	color:red;
+	display:block;
+}
+ 
+</style>
+
+<body>
+
+<div class="calc">
+<div id="tim"></div>
+   <br><br>
+<div id="disp"></div>
+<button id="switch" value ="on">OF/ON</button>
+                      <br>
+
+<button id="sin">Sin </button>
+<button id="cos">Cos </button>
+<button id="tan">Tan </button> 
+<button id="clear"><strong><b>DEL</b></strong></button>
+
+<button id="m">M+</button>
+<button id="m2">M-</button>
+<button id="m3">Mr</button>
+<button id="mc"> <strong><b>A/C</b></strong> </button>
+
+<button id="sqt">√ </button>
+<button id="pow">X<sup>2</button>
+<button id="rem">%</button>
+<button id="log">log </button>
+
+<button id="7">7</button>
+<button id="8">8</button>
+<button id="9">9</button>
+<button id="add">+</button>
+
+<button id="4">4</button>
+<button id="5">5</button>
+<button id="6">6</button>
+<button id="sub">-</button>
+
+<button id="1">1</button>
+<button id="2">2</button>
+<button id="3">3</button>
+<button id="mult">x</button>
+
+<button id="0">0</button>
+<button id="dec">.</button>
+<button id="answer"> = </button>
+<button id="divi"> ÷ </button>
+
+</div>
+
+<script>
+
+//calculator time
+
+var hello = setInterval(time,1000);
+    function time(){
+    var d= new Date ();
+    var ca = d.toLocaleTimeString();
+    document.querySelector('#tim').innerHTML=ca;
+  } 
+
+//the display 
+
+var display = document.querySelector("#disp");
+
+//the number buttons function
+function ud(n){
+	let dis = document.querySelector("#disp");
+	if(dis.innerHTML === "0"){
+		dis.innerHTML = n }
+		else{
+	dis.innerHTML += n;}
+     }
+   
+   
+function ans(){
+	 display.innerHTML  = eval(display.innerHTML);
+	   
+}
+
+// the power button
+
+		function  show(){
+
+let x = document.querySelector("#disp");
+	
+if(x.style.color === "white") {
+x.style.color = "";
+} else { x.style.color = "white";
+	x.innerHTML= "0";
+	}
+}
+
+	
+		function mClear(){
+			
+document.querySelector("#disp").innerHTML = "";
+}
+
+
+			
+			var m = 0;
+			
+	function mPlus(){
+		x = Number(disp.innerHTML);
+		m += x;
+	}
+	function mMinus(){
+		x = Number(disp.innerHTML);
+		m -= x;
+	}
+	function memo(){
+		
+		disp.innerHTML = m;
+	}
+	
+	
+function swt(){
+var h = disp.innerHTML;
+if(h.length == 0){
+	document.querySelector("#disp").innerHTML = " ";}
+	else{	
+	disp.innerHTML = h.slice(0,h.length-1);
+	}
+}
+//mathematical operator button functions
+function form(){
+	disp.innerHTML = Math.sqrt(document.querySelector("#disp").innerHTML);
+}
+
+function loga(){
+	disp.innerHTML = Math.log(document.querySelector("#disp").innerHTML);
+}
+
+function pow2(){
+	disp.innerHTML = Math.pow(document.querySelector("#disp").innerHTML, 2);
+}
+
+function Sn(){
+	disp.innerHTML = Math.sin(document.querySelector("#disp").innerHTML);
+}
+function Cos(){
+	disp.innerHTML = Math.cos(document.querySelector("#disp").innerHTML);
+}
+
+	function Tan(){
+	disp.innerHTML = Math.tan(document.querySelector("#disp").innerHTML);
+}
+
+
+document.getElementById("sin").addEventListener("click", function(){
+Sn();});
+document.getElementById("cos").addEventListener("click", function(){
+Cos();});
+document.getElementById("tan").addEventListener("click", function(){
+Tan();});
+document.getElementById("9").addEventListener("click", function(){
+ud(9);});
+document.getElementById("8").addEventListener("click", function(){	
+ud(8);});
+document.getElementById("7").addEventListener("click", function(){	
+ud(7);});
+document.getElementById("6").addEventListener("click", function(){	
+ud(6);});
+document.getElementById("5").addEventListener("click", function(){	
+ud(5);});
+document.getElementById("4").addEventListener("click", function(){	
+ud(4);});
+document.getElementById("3").addEventListener("click", function(){
+ud(3);});
+document.getElementById("2").addEventListener("click", function(){	
+ud(2);});
+document.getElementById("1").addEventListener("click", function(){
+ud(1);});
+document.getElementById("0").addEventListener("click", function(){	
+ud(0);});
+
+document.getElementById("add").addEventListener("click", function(){
+ud("+");});
+document.getElementById("sub").addEventListener("click", function(){	
+ud("-");});
+document.getElementById("mult").addEventListener("click", function(){	
+ud("*");});
+document.getElementById("divi").addEventListener("click", function(){
+ud("/");});
+document.getElementById("dec").addEventListener("click", function(){
+ud(".");});
+
+document.getElementById("clear").addEventListener("click", function(){
+swt();});
+document.getElementById("answer").addEventListener("click", function(){	
+ans();});
+document.getElementById("m").addEventListener("click", function(){
+mPlus();});
+
+document.getElementById("m2").addEventListener("click", function(){
+mMinus();});
+document.getElementById("mc").addEventListener("click", function(){	mClear();});
+
+document.getElementById("sqt").addEventListener("click", function(){form();});
+document.getElementById("pow").addEventListener("click", function(){pow2();});
+document.getElementById("log").addEventListener("click", function(){loga();});    
+document.getElementById("rem").addEventListener("click", function(){ud("%");});
+
+document.getElementById("m3").addEventListener("click", function(){ memo();});
+document.getElementById("switch").addEventListener("click", function(){ show();});
+
+
+</script>
+
+</body>
+</html>
